@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component
 @Component
 class CustomerSessionImpl: CustomerSession {
     override fun findCustomerByCpf(cpf: String): Customer {
+        println("Tete")
         TODO("Not yet implemented")
     }
 

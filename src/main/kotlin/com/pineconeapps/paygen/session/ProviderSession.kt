@@ -19,6 +19,6 @@ interface ProviderSession {
 
     fun setImages(providerId: String, dto: ImagesDTO): Response
 
-    fun filter(latitude: String, longitude: String): List<Provider>
+    fun findProvidersByLocation(latitude: String, longitude: String): List<Provider>
 
 }

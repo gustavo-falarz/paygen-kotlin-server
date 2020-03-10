@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*
 
 
 @RestController
-@RequestMapping("/customer")
+@RequestMapping("customer")
 class CustomerController @Autowired constructor(private val session: CustomerSession) {
 
     @GetMapping("{cpf}")
@@ -22,17 +22,12 @@ class CustomerController @Autowired constructor(private val session: CustomerSes
         return session.createUser(customer)
     }
 
-    @PostMapping("/updateCustomer")
-    fun updateCustomer(@RequestBody customer: Customer): Customer {
-        return session.updateCustomer(customer)
-    }
-
-    @GetMapping("/checkReception/{customerId}")
+    @GetMapping("checkReception/{customerId}")
     fun checkReception(@PathVariable customerId: String): Customer {
         return session.checkReception(customerId)
     }
 
-    @PostMapping("/updateProfile")
+    @PostMapping("updateProfile")
     fun updateProfile(@RequestBody dto: LoginDTO): Customer {
         return session.updateProfile(dto)
     }
