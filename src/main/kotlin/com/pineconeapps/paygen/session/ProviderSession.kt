@@ -21,4 +21,6 @@ interface ProviderSession {
 
     fun findProvidersByLocation(latitude: String, longitude: String): List<Provider>
 
+    fun findProviderById(id: String): Provider
+
 }

@@ -6,7 +6,7 @@ import com.pineconeapps.paygen.session.CustomerSession
 import org.springframework.stereotype.Component
 
 @Component
-class CustomerSessionImpl: CustomerSession {
+class CustomerSession: CustomerSession {
     override fun findCustomerByCpf(cpf: String): Customer {
         println("Tete")
         TODO("Not yet implemented")

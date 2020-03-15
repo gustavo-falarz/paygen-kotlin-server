@@ -8,7 +8,7 @@ import com.pineconeapps.paygen.session.ProviderSession
 import org.springframework.stereotype.Component
 
 @Component
-class ProviderSessionImpl : ProviderSession{
+class ProviderSession : ProviderSession {
     override fun findProviderByEmail(email: String): Provider {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
@@ -35,6 +35,10 @@ class ProviderSessionImpl : ProviderSession{
 
     override fun findProvidersByLocation(latitude: String, longitude: String): List<Provider> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun findProviderById(id: String): Provider {
+        TODO("Not yet implemented")
     }
 
 }
