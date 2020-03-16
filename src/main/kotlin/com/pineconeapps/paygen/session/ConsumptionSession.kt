@@ -4,7 +4,6 @@ import com.pineconeapps.paygen.entity.Consumption
 import com.pineconeapps.paygen.entity.Customer
 import com.pineconeapps.paygen.entity.Provider
 import com.pineconeapps.paygen.entity.Response
-import org.springframework.stereotype.Component
 
 interface ConsumptionSession {
 

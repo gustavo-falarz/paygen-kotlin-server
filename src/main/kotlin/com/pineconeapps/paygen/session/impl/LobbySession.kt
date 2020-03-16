@@ -3,8 +3,8 @@ package com.pineconeapps.paygen.session.impl
 import com.pineconeapps.paygen.entity.Customer
 import com.pineconeapps.paygen.entity.Lobby
 import com.pineconeapps.paygen.entity.Response
-import org.springframework.stereotype.Component
 import com.pineconeapps.paygen.session.LobbySession
+import org.springframework.stereotype.Component
 
 @Component
 class LobbySession: LobbySession {

@@ -1,7 +1,6 @@
 package com.pineconeapps.paygen.service
 
 import com.pineconeapps.paygen.entity.Response
-import com.pineconeapps.paygen.entity.Response.Companion.error
 import com.pineconeapps.paygen.entity.Response.Companion.ok
 import com.pineconeapps.paygen.utils.Constants
 import com.pineconeapps.paygen.utils.PaygenException
