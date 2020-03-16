@@ -10,31 +10,31 @@ import org.springframework.stereotype.Component
 @Component
 class ProviderSession : ProviderSession {
     override fun findProviderByEmail(email: String): Provider {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        TODO("not implemented")
     }
 
     override fun addProvider(provider: Provider): Response {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        TODO("not implemented")
     }
 
     override fun listEmployees(providerId: String): List<Employee> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        TODO("not implemented")
     }
 
     override fun findAll(): List<Provider> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        TODO("not implemented")
     }
 
     override fun getImages(providerId: String): ImagesDTO {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        TODO("not implemented")
     }
 
     override fun setImages(providerId: String, dto: ImagesDTO): Response {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        TODO("not implemented")
     }
 
     override fun findProvidersByLocation(latitude: String, longitude: String): List<Provider> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        TODO("not implemented")
     }
 
     override fun findProviderById(id: String): Provider {

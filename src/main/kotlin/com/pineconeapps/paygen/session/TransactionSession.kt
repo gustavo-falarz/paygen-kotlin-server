@@ -17,7 +17,7 @@ interface TransactionSession {
 
     fun updateDelivery(delivery: Delivery): Response
 
-    fun getCustomerTransactions(customerId: String): Response
+    fun getCustomerTransactions(customerId: String): List<Transaction>
 
     fun filterSales(providerId: String, dateFilter: DateFilter): List<Transaction>
 

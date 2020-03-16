@@ -12,7 +12,7 @@ interface ConsumptionSession {
 
     fun getConsumption(customerId: String, providerId: String): Consumption
 
-    fun addItemToConsumption(providerId: String, customerId: String, itemId: String): Response
+    fun addItem(providerId: String, customerId: String, itemId: String): Response
 
     fun removeItem(providerId: String, customerId: String, itemId: String): Response
 
