@@ -9,8 +9,9 @@ interface ProductSession {
 
     fun addProduct(providerId: String, product: Product): Response
 
-    fun findProduct(providerId: String, query: String): List<Product>
+    fun findProduct(providerId: String, query: String): Product
 
     fun findProduct(id: String): Product
 
+    fun findProducts(providerId: String, query: String): List<Product>
 }

@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface ProviderRepository : MongoRepository<Provider, String> {
+
     fun findByEmail(email: String): Provider
+
     fun findByLocationNearOrderByLocation(location: Point, distance: Distance): List<Provider>
 }

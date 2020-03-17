@@ -12,14 +12,9 @@ import org.springframework.stereotype.Component
 
 @Component
 class CustomerSession(val repository: CustomerRepository) : BaseSession(), CustomerSession {
+
     override fun findCustomerById(customerId: String): Customer {
         val customer = repository.findByEmail(customerId)
-        customer.exists(error("error.customer-not-found"))
-        return customer.get()
-    }
-
-    override fun findCustomerByCpf(cpf: String): Customer {
-        val customer = repository.findByEmail(cpf)
         customer.exists(error("error.customer-not-found"))
         return customer.get()
     }

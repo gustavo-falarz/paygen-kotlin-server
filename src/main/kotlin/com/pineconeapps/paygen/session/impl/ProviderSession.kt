@@ -1,14 +1,17 @@
 package com.pineconeapps.paygen.session.impl
 
+import com.pineconeapps.paygen.controller.BaseSession
 import com.pineconeapps.paygen.entity.Employee
 import com.pineconeapps.paygen.entity.Provider
 import com.pineconeapps.paygen.entity.Response
 import com.pineconeapps.paygen.entity.dto.ImagesDTO
+import com.pineconeapps.paygen.repository.ProviderRepository
 import com.pineconeapps.paygen.session.ProviderSession
 import org.springframework.stereotype.Component
+import org.springframework.stereotype.Repository
 
 @Component
-class ProviderSession : ProviderSession {
+class ProviderSession(val repository: ProviderRepository) : BaseSession(), ProviderSession {
     override fun findProviderByEmail(email: String): Provider {
         TODO("not implemented")
     }
@@ -38,7 +41,9 @@ class ProviderSession : ProviderSession {
     }
 
     override fun findProviderById(id: String): Provider {
-        TODO("Not yet implemented")
+        val provider = repository.findById(id)
+        provider.exists(error("error.provider-not-found"))
+        return provider.get()
     }
 
 }

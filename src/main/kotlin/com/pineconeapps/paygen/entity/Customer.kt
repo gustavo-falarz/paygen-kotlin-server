@@ -3,17 +3,15 @@ package com.pineconeapps.paygen.entity
 import org.springframework.context.annotation.Lazy
 import org.springframework.data.mongodb.core.mapping.DBRef
 
-class Customer(id: String,
-               name: String,
-               email: String, 
-               status: Status,
-               var cpf: String) : User(id, name, email, status) {
+class Customer(
+        id: String,
+        name: String,
+        email: String,
+        status: Status = Status.ACTIVE,
+        var picture: String = "",
+        @DBRef @field:Lazy var purchases: List<Transaction> = ArrayList()
+) : User(id, name, email, status) {
 
-    var picture: String? = null
-
-    @DBRef
-    @Lazy
-    var purchases: List<Transaction>? = null
     var checkedIn: CheckedIn? = null
 
 }

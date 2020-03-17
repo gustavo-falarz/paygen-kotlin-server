@@ -2,11 +2,13 @@ package com.pineconeapps.paygen.entity
 
 import com.fasterxml.jackson.annotation.JsonFormat
 import org.springframework.data.annotation.Id
+import org.springframework.data.mongodb.core.mapping.Document
 import org.springframework.data.repository.cdi.Eager
 import org.springframework.format.annotation.DateTimeFormat
 import java.util.*
 
 @Eager
+@Document
 open class Transaction {
     @Id
     var id: String? = null

@@ -1,5 +1,6 @@
 package com.pineconeapps.paygen.controller
 
+import com.pineconeapps.paygen.entity.Item
 import com.pineconeapps.paygen.entity.Product
 import com.pineconeapps.paygen.entity.Response
 import com.pineconeapps.paygen.session.ProductSession
@@ -16,10 +17,7 @@ class ProductController(val session: ProductSession) {
     }
 
     @PutMapping("{providerId}")
-    fun addProduct(
-            @RequestBody product: Product,
-            @PathVariable("providerId") providerId: String
-    ): Response {
+    fun addProduct(@RequestBody product: Product, @PathVariable providerId: String): Response {
         return session.addProduct(providerId, product)
     }
 
@@ -28,6 +26,6 @@ class ProductController(val session: ProductSession) {
             @PathVariable("providerId") providerId: String,
             @PathVariable("query") query: String
     ): List<Product> {
-        return session.findProduct(providerId, query)
+        return session.findProducts(providerId, query)
     }
 }

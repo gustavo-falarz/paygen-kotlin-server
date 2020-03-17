@@ -7,5 +7,4 @@ import java.util.*
 
 interface CustomerRepository : MongoRepository<Customer, String> {
     fun findByEmail(email: String): Optional<Customer>
-    fun findByCpf(cpf: String): Optional<Customer>
 }

@@ -10,19 +10,25 @@ class Provider(id: String, name: String, email: String, status: Status) : User(i
 
     @DBRef
     @Lazy
-    var sales: List<Transaction>? = null
+    var sales: MutableList<Transaction> = ArrayList()
 
     @Lazy
-    var consumptions: MutableList<Consumption>? = null
-
-    @DBRef
-    @Lazy
-    var employees: List<User>? = null
+    var consumptions: MutableList<Consumption> = ArrayList()
 
     @DBRef
     @Lazy
-    var items: List<Item>? = null
+    var employees: MutableList<User> = ArrayList()
+
+    @DBRef
+    @Lazy
+    var products: MutableList<Product> = ArrayList()
+
+    @DBRef
+    @Lazy
+    var services: MutableList<Service> = ArrayList()
+
     var location: Point? = null
+
     var info: ProviderInfo? = null
 
 }

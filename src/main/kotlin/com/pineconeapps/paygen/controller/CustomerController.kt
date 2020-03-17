@@ -5,22 +5,21 @@ import com.pineconeapps.paygen.entity.Customer
 import com.pineconeapps.paygen.entity.Response
 import com.pineconeapps.paygen.entity.dto.LoginDTO
 import com.pineconeapps.paygen.session.CustomerSession
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
 
 
 @RestController
 @RequestMapping("customer")
-class CustomerController @Autowired constructor(private val session: CustomerSession) {
+class CustomerController(val session: CustomerSession) {
 
     @PutMapping
-    fun createCustomer(customer: Customer): Response {
+    fun createCustomer(@RequestBody customer: Customer): Response {
         return session.createUser(customer)
     }
 
-    @GetMapping("{cpf}")
-    fun findCustomerByCpf(@PathVariable cpf: String): Customer {
-        return session.findCustomerByCpf(cpf)
+    @GetMapping("{customerId}")
+    fun findCustomerByCpf(@PathVariable customerId: String): Customer {
+        return session.findCustomerById(customerId)
     }
 
     @GetMapping("reception/{customerId}")
@@ -28,7 +27,7 @@ class CustomerController @Autowired constructor(private val session: CustomerSes
         return session.checkReception(customerId)
     }
 
-    @PostMapping("updateProfile")
+    @PostMapping("update-profile")
     fun updateProfile(@RequestBody dto: LoginDTO): Customer {
         return session.updateProfile(dto)
     }

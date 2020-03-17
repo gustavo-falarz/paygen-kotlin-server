@@ -4,14 +4,15 @@ import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
 
 @Document
-open class Item {
+open class Item(
+        var name: String,
+        var description: String,
+        var value: Double,
+        var price: Double,
+        var discount: Double = 0.0,
+        var picture: String = ""
+) {
     @Id
     var id: String? = null
-    var name: String? = null
-    var description: String? = null
-    var value = 0.0
-    var price = 0.0
-    var discount = 0.0
-    var picture: String? = null
 
 }
