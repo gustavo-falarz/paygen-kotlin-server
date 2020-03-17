@@ -22,7 +22,7 @@ class ProductSession(
     }
 
     override fun addProduct(providerId: String, product: Product): Response {
-        val provider = providerSession.findProviderById(id = providerId)
+        val provider = providerSession.findProviderById(providerId)
         provider.products.add(product)
         providerRepository.save(provider)
         return Response.ok(message("message-product-added"))
