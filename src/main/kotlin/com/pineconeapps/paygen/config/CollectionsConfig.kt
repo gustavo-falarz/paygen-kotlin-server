@@ -1,4 +1,4 @@
-package com.pineconeapps.paygen
+package com.pineconeapps.paygen.config
 
 import com.pineconeapps.paygen.entity.Provider
 import org.springframework.beans.factory.annotation.Autowired

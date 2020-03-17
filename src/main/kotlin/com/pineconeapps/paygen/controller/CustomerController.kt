@@ -1,6 +1,8 @@
 package com.pineconeapps.paygen.controller
 
+import com.pineconeapps.paygen.entity.CheckedIn
 import com.pineconeapps.paygen.entity.Customer
+import com.pineconeapps.paygen.entity.Response
 import com.pineconeapps.paygen.entity.dto.LoginDTO
 import com.pineconeapps.paygen.session.CustomerSession
 import org.springframework.beans.factory.annotation.Autowired
@@ -12,7 +14,7 @@ import org.springframework.web.bind.annotation.*
 class CustomerController @Autowired constructor(private val session: CustomerSession) {
 
     @PutMapping
-    fun createCustomer(customer: Customer): Customer {
+    fun createCustomer(customer: Customer): Response {
         return session.createUser(customer)
     }
 
@@ -21,8 +23,8 @@ class CustomerController @Autowired constructor(private val session: CustomerSes
         return session.findCustomerByCpf(cpf)
     }
 
-    @GetMapping("checkReception/{customerId}")
-    fun checkReception(@PathVariable customerId: String): Customer {
+    @GetMapping("reception/{customerId}")
+    fun checkReception(@PathVariable customerId: String): CheckedIn? {
         return session.checkReception(customerId)
     }
 

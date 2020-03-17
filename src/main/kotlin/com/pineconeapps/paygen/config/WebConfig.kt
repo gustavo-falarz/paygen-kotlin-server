@@ -1,4 +1,4 @@
-package com.pineconeapps.paygen
+package com.pineconeapps.paygen.config
 
 import com.pineconeapps.paygen.controller.AuthInterceptor
 import org.springframework.context.annotation.Configuration
