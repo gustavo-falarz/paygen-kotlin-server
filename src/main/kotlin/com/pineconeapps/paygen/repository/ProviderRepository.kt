@@ -1,3 +1,5 @@
+@file:Suppress("SpringDataRepositoryMethodParametersInspection")
+
 package com.pineconeapps.paygen.repository
 
 import com.pineconeapps.paygen.entity.Provider
