@@ -15,7 +15,7 @@ class CustomerSession(val repository: CustomerRepository) : BaseSession(), Custo
 
     override fun findCustomerById(customerId: String): Customer {
         val customer = repository.findByEmail(customerId)
-        customer.exists(error("error.customer-not-found"))
+        customer.throwIfNull(error("error.customer-not-found"))
         return customer.get()
     }
 
@@ -34,7 +34,7 @@ class CustomerSession(val repository: CustomerRepository) : BaseSession(), Custo
 
     override fun createUser(customer: Customer): Response {
         val existingCustomer = repository.findByEmail(customer.email)
-        existingCustomer.checkDuplicate(error("error.user-registered"))
+        existingCustomer.throwIfDuplicate(error("error.user-registered"))
 
         customer.purchases = ArrayList()
         repository.save(customer)

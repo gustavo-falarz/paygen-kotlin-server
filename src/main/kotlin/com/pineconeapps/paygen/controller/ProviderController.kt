@@ -11,6 +11,10 @@ import org.springframework.web.bind.annotation.*
 @RequestMapping("provider")
 class ProviderController(val providerSession: ProviderSession) {
 
+    @PutMapping
+    fun createProvider(@RequestBody provider: Provider): Response {
+        return providerSession.createProvider(provider)
+    }
 
     @GetMapping("{latitude}/{longitude}")
     fun findProvidersByLocation(@PathVariable latitude: String, @PathVariable longitude: String): List<Provider> {

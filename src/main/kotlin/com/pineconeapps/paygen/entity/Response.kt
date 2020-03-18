@@ -9,7 +9,7 @@ class Response(val status: Boolean, val message: String) {
         }
 
         fun ok(message: String): Response {
-            return Response(status = false, message = message)
+            return Response(status = true, message = message)
         }
     }
 }

@@ -5,4 +5,5 @@ import org.springframework.data.mongodb.repository.MongoRepository
 
 interface ProductRepository : MongoRepository<Product, String> {
     fun findByDescription(name: String): Product
+    fun existsByName(name: String): Boolean
 }

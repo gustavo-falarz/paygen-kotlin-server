@@ -5,8 +5,13 @@ import org.springframework.data.geo.Point
 import org.springframework.data.mongodb.core.mapping.DBRef
 
 
-class Provider(id: String, name: String, email: String, status: Status) : User(id, name, email, status) {
-    var lobby: Lobby? = null
+class Provider(
+        id: String,
+        name: String,
+        email: String,
+        status: Status = Status.PENDING
+) : User(id, name, email, status) {
+    var lobby: Lobby = Lobby()
 
     @DBRef
     @Lazy
@@ -17,7 +22,7 @@ class Provider(id: String, name: String, email: String, status: Status) : User(i
 
     @DBRef
     @Lazy
-    var employees: MutableList<User> = ArrayList()
+    var employees: MutableList<Employee> = ArrayList()
 
     @DBRef
     @Lazy

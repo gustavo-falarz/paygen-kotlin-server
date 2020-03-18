@@ -23,6 +23,7 @@ class ProductSession(
 
     override fun addProduct(providerId: String, product: Product): Response {
         val provider = providerSession.findProviderById(providerId)
+        productRepository.save(product)
         provider.products.add(product)
         providerRepository.save(provider)
         return Response.ok(message("message-product-added"))
@@ -36,13 +37,16 @@ class ProductSession(
     }
 
     override fun findProduct(id: String): Product {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val product = productRepository.findById(id)
+        product.throwIfNull(error("error.product-not-found"))
+        return product.get()
     }
 
     override fun findProducts(providerId: String, query: String): List<Product> {
         val provider = providerSession.findProviderById(providerId)
         val products = provider.products
-        return products.filter { it.description.contains(query.decapitalize()) }
+        return products.filter { it.description.decapitalize().contains(query.decapitalize()) ||
+                it.name.decapitalize().contains(query.decapitalize()) }
     }
 
 }

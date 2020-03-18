@@ -18,11 +18,11 @@ class BaseSession {
 
     fun message(code: String) = messageHandler.getMessage(code)
 
-    fun <T> Optional<T>.checkDuplicate(msg: String) {
+    fun <T> Optional<T>.throwIfDuplicate(msg: String) {
         verificationUtils.checkDuplicate(this, msg)
     }
 
-    fun <T> Optional<T>.exists(msg: String) {
+    fun <T> Optional<T>.throwIfNull(msg: String) {
         verificationUtils.exists(this, msg)
     }
 }
