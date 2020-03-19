@@ -23,4 +23,6 @@ interface ProviderSession {
 
     fun setImages(providerId: String, dto: ImagesDTO): Response
 
+    fun updateProvider(provider: Provider)
+
 }

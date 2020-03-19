@@ -6,11 +6,9 @@ import com.pineconeapps.paygen.entity.Response
 
 interface LobbySession {
 
-    fun checkIn(userID: String, providerId: String): Response
+    fun checkIn(customerId: String, providerId: String): Response
 
-    fun checkOut(userID: String, providerId: String): Response
-
-    fun getLobby(providerId: String): Lobby
+    fun checkOut(customerId: String, providerId: String): Response
 
     fun getCustomers(providerId: String): List<Customer>
 

@@ -18,7 +18,7 @@ class CustomerController(val session: CustomerSession) {
     }
 
     @GetMapping("{customerId}")
-    fun findCustomerByCpf(@PathVariable customerId: String): Customer {
+    fun findCustomerById(@PathVariable customerId: String): Customer {
         return session.findCustomerById(customerId)
     }
 

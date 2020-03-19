@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component
 class CustomerSession(val repository: CustomerRepository) : BaseSession(), CustomerSession {
 
     override fun findCustomerById(customerId: String): Customer {
-        val customer = repository.findByEmail(customerId)
+        val customer = repository.findById(customerId)
         customer.throwIfNull(error("error.customer-not-found"))
         return customer.get()
     }
@@ -24,8 +24,8 @@ class CustomerSession(val repository: CustomerRepository) : BaseSession(), Custo
         return customer.checkedIn
     }
 
-    override fun updateCustomer(customer: Customer): Customer {
-        TODO("Not yet implemented")
+    override fun updateCustomer(customer: Customer) {
+        repository.save(customer)
     }
 
     override fun updateProfile(dto: LoginDTO): Customer {

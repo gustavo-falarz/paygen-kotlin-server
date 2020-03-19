@@ -9,7 +9,7 @@ interface CustomerSession {
 
     fun findCustomerById(customerId: String):Customer
 
-    fun updateCustomer(customer: Customer): Customer
+    fun updateCustomer(customer: Customer)
 
     fun checkReception(customerId: String): CheckedIn?
 
