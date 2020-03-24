@@ -1,6 +1,5 @@
 package com.pineconeapps.paygen.controller
 
-import com.pineconeapps.paygen.entity.Item
 import com.pineconeapps.paygen.entity.Product
 import com.pineconeapps.paygen.entity.Response
 import com.pineconeapps.paygen.session.ProductSession
