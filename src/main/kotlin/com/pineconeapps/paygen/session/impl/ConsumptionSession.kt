@@ -16,6 +16,7 @@ import org.springframework.stereotype.Component
 class ConsumptionSession(
         val repository: ConsumptionRepository,
         val providerSession: ProviderSession,
+        val productSession: ProductSession,
         val customerSession: CustomerSession
 ) : ConsumptionSession, BaseSession() {
 
@@ -37,15 +38,45 @@ class ConsumptionSession(
     }
 
     override fun addItem(providerId: String, customerId: String, itemId: String): Response {
-        TODO("not implemented")
+        val provider = providerSession.findProviderById(providerId)
+        val product = productSession.findProductById(itemId)
+        val consumption = provider.consumptions.find { it.customer.id == customerId }
+
+        if (consumption == null) {
+            throw PaygenException(error("error.consumption-not-found"))
+        } else {
+            consumption.items.add(product)
+        }
+
+        providerSession.updateProvider(provider)
+        return Response.ok(message("message.item-added-to-consumption"))
     }
 
     override fun removeItem(providerId: String, customerId: String, itemId: String): Response {
-        TODO("not implemented")
+        val provider = providerSession.findProviderById(providerId)
+        val consumption = provider.consumptions.find { it.customer.id == customerId }
+        val product = productSession.findProductById(itemId)
+
+        if (consumption == null) {
+            throw PaygenException(error("error.consumption-not-found"))
+        } else {
+            consumption.items.remove(product)
+        }
+
+        providerSession.updateProvider(provider)
+        return Response.ok(message("message.item-removed-to-consumption"))
     }
 
     override fun removeConsumption(customerId: String, providerId: String): Response {
-        TODO("not implemented")
-    }
+        val provider = providerSession.findProviderById(providerId)
+        val consumption = provider.consumptions.find { it.customer.id == customerId }
+        if (consumption == null) {
+            throw PaygenException(error("error.consumption-not-found"))
+        } else {
+            provider.consumptions.remove(consumption)
+        }
 
+        providerSession.updateProvider(provider)
+        return Response.ok(message("message.consumption-removed"))
+    }
 }

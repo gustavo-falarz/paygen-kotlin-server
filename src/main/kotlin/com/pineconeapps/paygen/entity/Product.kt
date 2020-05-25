@@ -5,7 +5,4 @@ class Product(
         description: String,
         value: Double,
         price: Double
-) : Item(name, description, value, value, price) {
-    var amount: Long = 0
-
-}
+) : Item(name, description, value, value, price)

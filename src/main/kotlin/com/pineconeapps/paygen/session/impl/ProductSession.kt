@@ -36,7 +36,7 @@ class ProductSession(
                 ?: throw PaygenException(error("error.product-not-found"))
     }
 
-    override fun findProduct(id: String): Product {
+    override fun findProductById(id: String): Product {
         val product = productRepository.findById(id)
         product.throwIfNull(error("error.product-not-found"))
         return product.get()

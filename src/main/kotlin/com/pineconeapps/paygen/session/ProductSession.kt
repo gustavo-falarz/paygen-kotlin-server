@@ -11,7 +11,7 @@ interface ProductSession {
 
     fun findProduct(providerId: String, query: String): Product
 
-    fun findProduct(id: String): Product
+    fun findProductById(id: String): Product
 
     fun findProducts(providerId: String, query: String): List<Product>
 }

@@ -17,6 +17,7 @@ class Provider(
     @Lazy
     var sales: MutableList<Transaction> = ArrayList()
 
+    @DBRef
     @Lazy
     var consumptions: MutableList<Consumption> = ArrayList()
 
