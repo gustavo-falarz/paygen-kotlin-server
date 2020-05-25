@@ -7,5 +7,5 @@ interface EmployeeSession {
 
     fun findEmployeeByEmail(email: String): Employee
 
-    fun createEmployee(employee: Employee): Response
+    fun createEmployee(employee: Employee, providerId: String): Response
 }

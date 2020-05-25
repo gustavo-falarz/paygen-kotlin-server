@@ -68,7 +68,7 @@ class ProviderSession(val repository: ProviderRepository) : BaseSession(), Provi
         }
 
         repository.save(provider)
-        return Response.ok("message.images-updated")
+        return Response.ok(message("message.images-updated"))
     }
 
     override fun updateProvider(provider: Provider) {
